@@ -15,7 +15,7 @@ jobs:
         rm -rf !(README.md)
         shopt -u extglob
         git clone https://github.com/cdle/jd_study.git  ./jd_study
-        mv ./conf/config.yaml ./conf/config.yaml.sample
+        mv ./jd_study/jdc/conf/config.yaml ./jd_study/jdc/conf/config.yaml.sample
         cp -rf ./jd_study/jdc/* ./
         rm -rf ./jd_study
         CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 go build -o JDCarm
@@ -34,4 +34,3 @@ jobs:
       with:
         github_token: ${{ secrets.PAT }}
         branch: master
-        
